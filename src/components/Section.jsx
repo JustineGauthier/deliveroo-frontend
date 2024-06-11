@@ -1,7 +1,7 @@
 import Article from "./Article";
 import "../css/section.css";
 
-const Section = ({ categorieName, categorieMeals }) => {
+const Section = ({ categorieName, categorieMeals, addMealToCart }) => {
   return (
     <section>
       <h2>{categorieName}</h2>
@@ -10,11 +10,8 @@ const Section = ({ categorieName, categorieMeals }) => {
           return (
             <Article
               key={meal.id}
-              mealTitle={meal.title}
-              mealDescription={meal.description}
-              mealPrice={meal.price}
-              mealImage={meal.picture}
-              mealIsPopular={meal.popular}
+              meal={meal}
+              addMealToCart={addMealToCart}
             ></Article>
           );
         })}

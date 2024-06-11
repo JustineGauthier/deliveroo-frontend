@@ -1,22 +1,20 @@
 import "../css/article.css";
 
-const Article = ({
-  mealTitle,
-  mealDescription,
-  mealPrice,
-  mealImage,
-  mealIsPopular,
-}) => {
+const Article = ({ meal, addMealToCart }) => {
   return (
-    <article>
+    <article
+      onClick={() => {
+        addMealToCart(meal);
+      }}
+    >
       <div className="mealCard">
         <div className="mealText">
-          <h3>{mealTitle}</h3>
-          <p>{mealDescription}</p>
+          <h3>{meal.title}</h3>
+          <p>{meal.description}</p>
           <div className="mealInfos">
-            <span className="mealInfosPrice">{mealPrice}</span>
+            <span className="mealInfosPrice">{meal.price}</span>
 
-            {mealIsPopular && (
+            {meal.popular && (
               <span className="mealInfosPopular">
                 <i className="fa-solid fa-star"></i>
                 <>Populaire</>
@@ -24,9 +22,9 @@ const Article = ({
             )}
           </div>
         </div>
-        {mealImage && (
+        {meal.picture && (
           <div className="mealPicture">
-            <img src={mealImage} alt="Meal picture" />
+            <img src={meal.picture} alt="Meal picture" />
           </div>
         )}
       </div>
