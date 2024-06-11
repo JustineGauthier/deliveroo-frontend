@@ -1,33 +1,54 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import { useEffect, useState } from "react";
 import "./App.css";
-import viteLogo from "/vite.svg";
+import axios from "axios";
+import Header from "./components/Header";
+import Section from "./components/Section";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
-  return (
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(
+        "https://site--backend-deliveroo--nksmjkmnbqhd.code.run/"
+      );
+      setData(response.data);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <span>En cours de chargement... </span>
+  ) : (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header
+        restaurantName={data.restaurant.name}
+        restaurantDescription={data.restaurant.description}
+        restaurantPicture={data.restaurant.picture}
+      ></Header>
+      <main>
+        <div id="restaurantCategories">
+          <div className="menuContainer">
+            {data.categories.map((categorie) => {
+              return (
+                <Section
+                  key={categorie.name}
+                  categorieName={categorie.name}
+                  categorieMeals={categorie.meals}
+                ></Section>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div className="container">
+          <p>fin</p>
+        </div>
+      </footer>
     </>
   );
 }

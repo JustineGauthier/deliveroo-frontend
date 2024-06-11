@@ -1,0 +1,75 @@
+article {
+  min-width: 300px;
+  padding: 0 10px 25px;
+  width: 50%;
+}
+
+.mealCard {
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height: 160px;
+  padding: 15px;
+  transition-duration: 0.3s;
+}
+
+.mealText {
+  flex: 1 1;
+  margin-right: 15px;
+}
+
+.mealText h3 {
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+}
+
+.mealText p {
+  color: #808484;
+  font-size: 0.9rem;
+  height: 2.6rem;
+  line-height: 1.3rem;
+  margin: 0 0 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mealInfos {
+  align-items: center;
+  display: flex;
+}
+
+.mealInfosPrice {
+  color: #808484;
+  font-size: 1.1rem;
+}
+
+.mealInfosPopular {
+  align-items: center;
+  color: #ff8000;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-left: 1rem;
+}
+
+.mealInfosPopular i {
+  margin-right: 4px;
+}
+
+.mealPicture {
+  border-radius: 5px;
+  height: 130px;
+  overflow: hidden;
+  position: relative;
+  width: 130px;
+}
+
+.mealPicture img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}

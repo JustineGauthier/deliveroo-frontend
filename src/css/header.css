@@ -1,0 +1,54 @@
+header {
+  background: #fff;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 96vw;
+}
+
+.topbar {
+  border-bottom: 1px solid #e9ebeb;
+  height: 60px;
+}
+
+.topbarContainer {
+  align-items: center;
+  height: 100%;
+}
+
+.topbarContainer img {
+  height: 70%;
+}
+
+.restaurantInfosContainer {
+  align-items: flex-start;
+  padding: 30px 0;
+}
+
+.restaurantInfosText {
+  flex: 1 1;
+  margin-right: 30px;
+}
+
+.restaurantInfosText h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 0.6rem;
+}
+
+.restaurantInfosText p {
+  color: #868a8a;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.restaurantInfosContainer img {
+  background: #f3f5f5;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 350px;
+}
