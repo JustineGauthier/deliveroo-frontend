@@ -24,9 +24,11 @@ const Article = ({
             )}
           </div>
         </div>
-        <div className="mealPicture">
-          <img src={mealImage} alt="Meal picture" />
-        </div>
+        {mealImage && (
+          <div className="mealPicture">
+            <img src={mealImage} alt="Meal picture" />
+          </div>
+        )}
       </div>
     </article>
   );
